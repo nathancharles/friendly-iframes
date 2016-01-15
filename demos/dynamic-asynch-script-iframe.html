@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Iframe - Dynamic Asynch</title>
+    <meta name="description" content="">
+  </head>
+
+  <body>
+    <h1>Friendly iFrame - Dynamic Asynch</h1>
+
+    <ul>
+      <li>Iframe exists on the page with src="javascript:false"</li>
+      <li>Onload of the iframe fires instantly, because of the src</li>
+      <li>Onload of iframe doc is set to inject script</li>
+      <li>Script is injected and injects ad iframe</li>
+    </ul>
+
+    <iframe src="javascript:false"></iframe>
+
+
+    <script>
+        (function(d){
+        // var iframe = d.body.appendChild(d.createElement('iframe')),
+        var iframe = d.body.getElementsByTagName('iframe')[0],
+            doc = iframe.contentWindow.document;
+
+        iframe.style.cssText = "position:absolute;width:200px;height:100px;left:0px;";
+
+        // This math.random stuff is only for the purpose of this test page
+        var a = Math.random() + "";
+        var t = a * 10000000000000;
+        doc.open().write('<body onload="' +
+
+          'var d = document;' +
+          'd.body.setAttribute(\'data-fif-prefix-data-fif-src\', \'http://gizmodo.com\');' +
+          'd.getElementsByTagName(\'head\')[0].' +
+          'appendChild(d.createElement(\'script\')).src' +
+          '=\'http:\/\/nathancharles.github.io\/friendly-iframes\/adLoader.js\'">');
+
+        doc.close(); //iframe onload event happens
+
+        var script = document.createElement('script');
+        script.src = 'http://1.cuzillion.com/bin/resource.cgi?type=js&sleep=2&n=1&t=3529962513130.158';
+
+        document.getElementsByTagName('head')[0].appendChild(script);
+
+      })(document);
+    </script>
+
+  </body>
+</html>
