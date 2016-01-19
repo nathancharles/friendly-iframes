@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Iframe - Dynamic Asynch without other content</title>
+    <title>Friendly iFrame - Dynamic Asynch with delay and without other content</title>
     <meta name="description" content="">
   </head>
 
   <body>
-    <h1>Friendly iFrame - Dynamic Asynch</h1>
+    <h1>Dynamic Asynch with delay and without other content</h1>
 
     <ol>
       <li>Iframe exists on the page with src="javascript:false"</li>
@@ -18,7 +18,7 @@
       <li>No other content exists on the main page</li>
     </ol>
 
-    <p><em>DOES NOT</em> block the main page's onload event, <strong>after the main page's content has loaded</strong>.</p>
+    <p><em>DOES NOT</em> block the main page's onload event, but injects the iframe <strong>AFTER</strong> the main page's content has loaded.</p>
 
     <iframe src="javascript:false"></iframe>
 
