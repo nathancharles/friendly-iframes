@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
       <li>Iframe exists on the page with src="javascript:false"</li>
       <li>Onload of the iframe fires instantly, because of the src</li>
       <li>Onload of iframe doc is set to inject script</li>
-      <li>Script is injected and injects ad iframe</li>
+      <li>Script is injected and injects ad iframe after delay (delay query parameter)</li>
       <li>No other content exists on the main page</li>
     </ol>
 
@@ -24,6 +24,13 @@
 
     <script>
         (function(d){
+
+        function getParameterByName(name) {
+          name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+          var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+          return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
 
         // var iframe = d.body.appendChild(d.createElement('iframe')),
         var iframe = d.body.getElementsByTagName('iframe')[0],
@@ -41,7 +48,7 @@
           'd.body.setAttribute(\'data-delay\', \'' + delay + '\');' +
           'd.getElementsByTagName(\'head\')[0].' +
           'appendChild(d.createElement(\'script\')).src' +
-          '=\'http:\/\/nathancharles.github.io\/friendly-iframes\/adLoader.js\'">');
+          '=\'http:\/\/nathancharles.github.io\/friendly-iframes\/adLoaderDelay.js\'">');
 
         doc.close(); //iframe onload event happens
 
