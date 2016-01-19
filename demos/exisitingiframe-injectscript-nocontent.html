@@ -10,14 +10,15 @@
   <body>
     <h1>Friendly iFrame - Dynamic Asynch Script with content</h1>
 
-    <ul>
+    <ol>
       <li>Iframe exists on the page with src="javascript:false"</li>
       <li>Onload of the iframe fires instantly, because of the src</li>
       <li>Onload of iframe doc is set to inject script</li>
-    </ul>
+    </ol>
+
+    <p><em>DOES NOT</em> block the main page's onload event</p>
 
     <iframe src="javascript:false"></iframe>
-
 
     <script>
         (function(d){
@@ -36,7 +37,7 @@
           'd.body.setAttribute(\'data-fif-prefix-data-fif-src\', \'http://gizmodo.com\');' +
           'd.getElementsByTagName(\'head\')[0].' +
           'appendChild(d.createElement(\'script\')).src' +
-          '=\'http:\/\/1.cuzillion.com\/bin\/resource.cgi?type=js&sleep=2&n=1&t=' + t + '\'">');
+          '=\'http:\/\/1.cuzillion.com\/bin\/resource.cgi?type=js&sleep=5&n=1&t=' + t + '\'">');
 
         doc.close(); //iframe onload event happens
 

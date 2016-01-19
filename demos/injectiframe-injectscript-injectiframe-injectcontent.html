@@ -10,13 +10,15 @@
   <body>
     <h1>Friendly iFrame - Dynamic Asynch</h1>
 
-    <ul>
+    <ol>
       <li>Inject iframe with src="javascript:false"</li>
       <li>Onload of the iframe fires instantly, because of the src</li>
       <li>Onload of iframe doc is set to inject script</li>
       <li>Script is injected and injects ad iframe</li>
       <li>Other content is injected into the main page</li>
-    </ul>
+    </ol>
+
+    <p>Blocks the main page's onload event</p>
 
     <div id="iframe-container"></div>
 
