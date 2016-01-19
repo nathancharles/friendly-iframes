@@ -4,34 +4,78 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Friendly iFrame - Demos</title>
+
+    <style>
+      a {
+        color: blue;
+      }
+
+      .indent {
+        padding-left: 40px;
+      }
+    </style>
   </head>
 
   <body>
     <h1>Friendly iFrame Demos</h1>
 
+    <h3>Dynamic Asynch</h3>
+    <p>These are the same as Aaron Peters' <a href="http://www.aaronpeters.nl/blog/iframe-loading-techniques-performance#dynamic" target="_blank">original posted solution</a>.</p>
     <ul>
-      <li><a href="demos/exisitingiframe-injectiframe-content.html"><strong>Injected Iframe</strong> with content</a></li>
-      <li><a href="demos/exisitingiframe-injectiframe-nocontent.html"><strong>Injected Iframe</strong> without content</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-content.html"><strong>Dynamic Asynch Script</strong> with content</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-nocontent.html"><strong>Dynamic Asynch Script</strong> without content</a></li>
-      <li><a href="demos/injectiframe-injectscript-injectiframe-injectcontent.html"><strong>Dynamic Asynch iFrame</strong> with injected iframe and injected content</a></li>
-      <li><a href="demos/injectiframe-injectscript-injectiframe-content.html"><strong>Dynamic Asynch iFrame</strong> with injected iframe and content</a></li>
-      <li><a href="demos/injectiframe-injectscript-injectiframe-nocontent.html"><strong>Dynamic Asynch iFrame</strong> with injected iframe and without content</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-injectcontent.html"><strong>Dynamic Asynch iFrame</strong> with existing iframe and injected content</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-content.html"><strong>Dynamic Asynch iFrame</strong> with existing iframe and content</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-nocontent.html"><strong>Dynamic Asynch iFrame</strong> with existing iframe and without content</a></li>
-
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-injectcontent-delay.html"><strong>Dynamic Asynch iFrame</strong> with existing iframe and injected content, setTimeout 0 on iframe injection</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-content-delay.html"><strong>Dynamic Asynch iFrame</strong> with existing iframe and content, setTimeout 0 on iframe injection</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-nocontent-delay.html"><strong>Dynamic Asynch iFrame</strong> with existing iframe and without content, setTimeout 0 on iframe injection</a></li>
-
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-injectcontent-delay.html?delay=1"><strong>Dynamic Asynch iFrame</strong> with existing iframe and injected content, 1 second delay on iframe injection</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-content-delay.html?delay=1"><strong>Dynamic Asynch iFrame</strong> with existing iframe and content, 1 second delay on iframe injection</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-nocontent-delay.html?delay=1"><strong>Dynamic Asynch iFrame</strong> with existing iframe and without content, 1 second delay on iframe injection</a></li>
-
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-injectcontent-delay.html?delay=4"><strong>Dynamic Asynch iFrame</strong> with existing iframe and injected content, 4 second delay on iframe injection</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-content-delay.html?delay=4"><strong>Dynamic Asynch iFrame</strong> with existing iframe and content, 4 second delay on iframe injection</a></li>
-      <li><a href="demos/exisitingiframe-injectscript-injectiframe-nocontent-delay.html?delay=4"><strong>Dynamic Asynch iFrame</strong> with existing iframe and without content, 4 second delay on iframe injection</a></li>
+      <li><a href="demos/exisitingiframe-injectscript-content.html">With content on the outer page</a></li>
+      <li><a href="demos/exisitingiframe-injectscript-nocontent.html">Without content on the outer page</a></li>
     </ul>
+
+    <hr>
+
+    <h3>Injecting Iframe</h3>
+    <p>These inject an iframe directly into the outer iframe.</p>
+    <ul>
+      <li><a href="demos/exisitingiframe-injectiframe-content.html">With content on the outer page</a></li>
+      <li><a href="demos/exisitingiframe-injectiframe-nocontent.html">Without content on the outer page</a></li>
+    </ul>
+
+    <hr>
+
+    <h3>Dynamic Asynch Iframe</h3>
+    <p>These follow the same principle as the original Dynamic Asynch, but instead of injecting just a script, they are injecting a script which then injects an iframe.</p>
+
+    <div class="indent">
+      <h4>Dynamically creating outer iframe</h4>
+      <p>These inject the outer iframe into the main page dynamically.</p>
+      <ul>
+        <li><a href="demos/injectiframe-injectscript-injectiframe-injectcontent.html">With content injected into the outer page</a></li>
+        <li><a href="demos/injectiframe-injectscript-injectiframe-content.html">With content on the outer page</a></li>
+        <li><a href="demos/injectiframe-injectscript-injectiframe-nocontent.html">Without content on the outer page</a></li>
+      </ul>
+
+      <h4>Existing outer iframe</h4>
+      <p>These utilize an outer iframe that already exists on the main page.</p>
+      <ul>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-injectcontent.html">With content injected into the outer page</a></li>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-content.html">With content on the outer page</a></li>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-nocontent.html">Without content on the outer page</a></li>
+      </ul>
+
+      <h4>With delay</h4>
+      <p>These delay the injection of the inner iframe.</p>
+      <ul>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-injectcontent-delay.html">0 second delay with content injected into the outer page</a></li>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-content-delay.html">0 second delay with content on the outer page</a></li>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-nocontent-delay.html">0 second delay without content on the outer page</a></li>
+      </ul>
+
+      <ul>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-injectcontent-delay.html?delay=1">1 second delay with content injected into the outer page</a></li>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-content-delay.html?delay=1">1 second delay with content on the outer page</a></li>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-nocontent-delay.html?delay=1">1 second delay without content on the outer page</a></li>
+      </ul>
+
+      <ul>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-injectcontent-delay.html?delay=4">4 second delay with content injected into the outer page</a></li>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-content-delay.html?delay=4">4 second delay with content on the outer page</a></li>
+        <li><a href="demos/exisitingiframe-injectscript-injectiframe-nocontent-delay.html?delay=4">4 second delay without content on the outer page</a></li>
+      </ul>
+    </div>
   </body>
 </html>
